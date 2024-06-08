@@ -8,7 +8,7 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql
 #COPY php.ini /usr/local/etc/php/conf.d/custom-php.ini
 
 # copy the apache config and enable the site
-ADD apache.conf /etc/apache2/sites-available/000-default.conf
+ADD apache/apache.conf /etc/apache2/sites-available/000-default.conf
 
 # enable apache rewrite module
 RUN a2enmod rewrite setenvif headers
