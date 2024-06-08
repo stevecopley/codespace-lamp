@@ -5,8 +5,9 @@ services:
             dockerfile: apache/Dockerfile
 
         volumes:
-            - /var/run/docker.sock:/var/run/docker-host.sock 
-            - ..:/workspace:cached
+            - ./site:/var/www/html
+            # - /var/run/docker.sock:/var/run/docker-host.sock 
+            # - ..:/workspace:cached
 
         command: sleep infinity
         restart: unless-stopped
