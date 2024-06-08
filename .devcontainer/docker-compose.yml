@@ -1,0 +1,36 @@
+services:
+    app:
+        build:
+            context: .
+            dockerfile: apache/Dockerfile
+
+        volumes:
+            - /var/run/docker.sock:/var/run/docker-host.sock 
+            - ..:/workspace:cached
+
+        command: sleep infinity
+        restart: unless-stopped
+
+        # Runs app on the same network as the database container, allows "forwardPorts" in devcontainer.json function.
+        network_mode: host
+        
+#     db:
+#         build:
+#             context: .
+#             dockerfile: mysql/Dockerfile
+
+#         volumes:
+#             - mysql-data:/var/lib/mysql
+#             - ./mysql:/docker-entrypoint-initdb.d:ro
+
+#         restart: unless-stopped
+    
+#         environment:
+#             MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+#             MYSQL_DATABASE:      ${MYSQL_DATABASE}
+#             MYSQL_USER:          ${MYSQL_USER}
+#             MYSQL_PASSWORD:      ${MYSQL_PASSWORD}
+
+# volumes:
+#     mysql-data:
+
