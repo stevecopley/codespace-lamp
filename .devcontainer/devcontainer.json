@@ -3,16 +3,26 @@
 
     "dockerComposeFile": "docker-compose.yml",
 	"service": "app",
-	"workspaceFolder": "/workspace",
 	
-	"forwardPorts": [8080],
+    "customizations": {
+        "vscode": {
+            "settings": { 
+                "php.executablePath": "/usr/local/bin/php"
+            },
+            "extensions": [
+                "DEVSENSE.phptools-vscode"
+            ]
+        }
+    },
 
-	"portsAttributes": {
-		"8000": {
-			"label": "Apache Remote",
-			"onAutoForward": "notify"
-		}
-	}
+	"forwardPorts": [8080]
+
+	// "portsAttributes": {
+	// 	"8000": {
+	// 		"label": "Apache Remote",
+	// 		"onAutoForward": "notify"
+	// 	}
+	// }
 
     // "build": {
 	// 	"dockerfile": "Dockerfile"
