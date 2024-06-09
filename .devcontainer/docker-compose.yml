@@ -9,7 +9,6 @@ services:
     volumes:
       - "../www:/var/www/html"
 
-    command: sleep infinity
     restart: unless-stopped
 
     network_mode: host

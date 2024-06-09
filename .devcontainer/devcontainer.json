@@ -12,26 +12,4 @@
 			"onAutoForward": "notify"
 		}
 	}
-
-
-
-    // "workspaceFolder": ""
-
-    // "settings": { 
-    //     "php.executablePath": "/usr/local/bin/php",
-	// 	"php.validate.executablePath": "/usr/local/bin/php"
-	// },
-
-    // "extensions": [
-    //     "DEVSENSE.phptools-vscode"
-    // ]
-
-	// "forwardPorts": [8080],
-
-	// "portsAttributes": {
-	// 	"8000": {
-	// 		"label": "Apache",
-	// 		"onAutoForward": "notify"
-	// 	}
-	// }
 }
