@@ -2,7 +2,7 @@ FROM php:apache
 
 RUN docker-php-ext-install pdo_mysql
 
-
+EXPOSE 8080
 
 # FROM mcr.microsoft.com/devcontainers/base:noble
 
