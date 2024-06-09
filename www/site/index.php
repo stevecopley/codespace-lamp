@@ -28,7 +28,7 @@
 
     echo '<p>Connected successfully';
 
-    $stmt = $pdo->query('SELECT * FROM messages LIMIT 1');
+    $stmt = $conn->query('SELECT * FROM messages LIMIT 1');
 
     $message = $stmt->fetch();
 
