@@ -1,25 +1,28 @@
+<h1>Hello World!</h1>
+
+<h2>PHP</h2>
+
 <?php
 
     echo 'Hello from PHP!!!';
 
-    $mysqli = new mysqli('127.0.0.1', 'root', 'root', 'db');
-
-
-    if (!$result = $mysqli->query('SELECT * FROM hello_world')) {
-        echo "Sorry, the website is experiencing problems.";
-
-        // Again, do not do this on a public site, but we'll show you how
-        // to get the error information
-        echo "Error: Our query failed to execute and here is why: \n";
-        echo "Query: " . $sql . "\n";
-        echo "Errno: " . $mysqli->errno . "\n";
-        echo "Error: " . $mysqli->error . "\n";
-        exit;
-    }
-
-    $data = $result->fetch_assoc();
-    echo $data['name'];
 ?>
-<br/>
-<br/>
-<a href="phpinfo.php">See phpinfo</a>
+
+<h2>MySQL</h2>
+
+<?php
+
+    $serverName   = "localhost";
+    $databaseName = "test";
+    $userName     = "root";
+    $password     = "root";
+
+    try {
+        $conn = new PDO("mysql:host=$serverName;dbname=$databaseName", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        echo "Connected successfully";
+    } 
+    catch(PDOException $e) {
+        echo "Connection failed: " . $e->getMessage();
+    }
+?>
