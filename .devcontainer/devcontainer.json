@@ -1,35 +1,6 @@
 {
 	"name": "Ubuntu", 
-	"image": "mcr.microsoft.com/devcontainers/base:noble",
-
-	"waitFor": "onCreateCommand",
-	"updateContentCommand": [
-        "sudo apt-get update",
-        "sudo apt-get install -y apache2",
-        "sudo apt-get install -y mysql-server",
-        "sudo apt-get install -y php-common",
-        "sudo apt-get install -y php-mysql",
-        "sudo apt-get install -y php-cli"
-    ],
-
-	"postCreateCommand": [
-		"sudo a2enmod rewrite",
-		"sudo service apache2 restart",
-		"sudo service mysql restart",
-		"echo 'Listen 8080' >> /etc/apache2/ports.conf",
-        "sudo cp /workspaces/$RepositoryName/config/apache.conf /etc/apache2/sites-available/000-default.conf"
-	],
-
-	"postAttachCommand": {
-		"server": "sudo service apache2 restart"
-	},
-
-	"portsAttributes": {
-		"80": {
-			"label": "Website",
-			"onAutoForward": "openPreview"
-		}
-	},
-
-	"remoteUser": "root"
+    "build": {
+		"dockerfile": "Dockerfile"
+    }
 }
