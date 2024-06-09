@@ -4,6 +4,8 @@ FROM webdevops/php-apache:8.2-alpine
 ENV PHP_DISPLAY_ERRORS=1
 ENV WEB_DOCUMENT_ROOT=$DOCUMENT_ROOT
 
+EXPOSE 80
+
 
 
 
