@@ -2,29 +2,23 @@
 	"name": "Linux, Apache, MySQL & PHP (LAMP)", 
 
     "dockerComposeFile": "docker-compose.yml",
-	"service": "app",
-	
-    "customizations": {
-        "vscode": {
-            "settings": { 
-                "php.executablePath": "/usr/local/bin/php"
-            },
-            "extensions": [
-                "DEVSENSE.phptools-vscode"
-            ]
-        }
-    },
+	"service": "app"
 
-	"forwardPorts": [8080]
+    // "settings": { 
+    //     "php.executablePath": "/usr/local/bin/php",
+	// 	"php.validate.executablePath": "/usr/local/bin/php"
+	// },
+
+    // "extensions": [
+    //     "DEVSENSE.phptools-vscode"
+    // ]
+
+	// "forwardPorts": [8080],
 
 	// "portsAttributes": {
 	// 	"8000": {
-	// 		"label": "Apache Remote",
+	// 		"label": "Apache",
 	// 		"onAutoForward": "notify"
 	// 	}
 	// }
-
-    // "build": {
-	// 	"dockerfile": "Dockerfile"
-    // }
 }
