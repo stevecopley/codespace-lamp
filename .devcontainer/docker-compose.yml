@@ -6,26 +6,44 @@ services:
       context: .
       dockerfile: Dockerfile
 
+    container_name: lamp-www
+
     volumes:
       - "../www:/var/www/html"
 
     restart: unless-stopped
 
+    depends_on:
+      - lamp-db
+
+    networks:
+      - net
+
     ports:
       - 8080:80
 
-  # db:
-  #   image: mysql
+  lamp-db:
 
-  #   restart: unless-stopped
+    image: mysql:latest
 
-  #   env_file: ./.env
+    container_name: lamp-db
 
-  #   environment:
-  #     MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-  #     MYSQL_DATABASE:      ${MYSQL_DATABASE}
-  #     MYSQL_USER:          ${MYSQL_USER}
-  #     MYSQL_PASSWORD:      ${MYSQL_PASSWORD}
+    restart: unless-stopped
 
-  #   ports:
-  #     - 3306:3306
+    env_file: ./.env
+
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE:      ${MYSQL_DATABASE}
+      MYSQL_USER:          ${MYSQL_USER}
+      MYSQL_PASSWORD:      ${MYSQL_PASSWORD}
+
+    ports:
+      - 3306:3306
+
+    networks:
+      - net
+
+networks:
+  net:
+    driver: bridge
