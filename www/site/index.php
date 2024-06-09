@@ -14,7 +14,7 @@
 
     $serverName   = "localhost";
     $databaseName = "test";
-    $userName     = "root";
+    $username     = "root";
     $password     = "root";
 
     try {
