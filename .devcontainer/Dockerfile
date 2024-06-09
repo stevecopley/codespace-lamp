@@ -1,11 +1,6 @@
-FROM webdevops/php-apache:8.2-alpine
-# COPY ../www /app
+FROM php:apache
 
-ENV PHP_DISPLAY_ERRORS=1
-ENV WEB_DOCUMENT_ROOT=$DOCUMENT_ROOT
-
-EXPOSE 80
-
+RUN docker-php-ext-install pdo_mysql
 
 
 

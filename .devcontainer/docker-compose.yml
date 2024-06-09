@@ -1,19 +1,22 @@
 services:
-    app:
-        image: webdevops/php-apache:8.2-alpine
 
-        # build:
-        #     context: .
-        #     dockerfile: Dockerfile
+  lamp-www:
 
-        # volumes:
-            # - ../..:/workspaces:cached
-            # - ../www:/var/www/html
+    build:
+      context: .
+      dockerfile: Dockerfile
 
-        command: sleep infinity
-        restart: unless-stopped
+    volumes:
+      # - ../..:/workspaces:cached
+      - "../www:/var/www/html"
 
-        network_mode: host
+    command: sleep infinity
+    restart: unless-stopped
+
+    network_mode: host
+
+    ports:
+      - 8080
 
     # db:
     #     image: mysql
