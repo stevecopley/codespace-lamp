@@ -1,31 +1,35 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.217.2/containers/php-mariadb
-// Update the VARIANT arg in docker-compose.yml to pick a PHP version
 {
-	"name": "Apache, PHP & MySQL",
+	"name": "Ubuntu", 
+	"image": "mcr.microsoft.com/devcontainers/base:numbat",
 
-	"dockerComposeFile": "docker-compose.yml",
-	"service": "app",
-	"workspaceFolder": "/workspace",
-	
+	"waitFor": "onCreateCommand",
+	"updateContentCommand": [
+        "sudo apt-get update",
+        "sudo apt-get install -y apache2",
+        "sudo apt-get install -y mysql-server",
+        "sudo apt-get install -y php-common",
+        "sudo apt-get install -y php-mysql",
+        "sudo apt-get install -y php-cli"
+    ],
 
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [8080, 3306],
-	"forwardPorts": [8080],
+	"postCreateCommand": [
+		"sudo a2enmod rewrite",
+		"sudo service apache2 restart",
+		"sudo service mysql restart",
+		"echo 'Listen 8080' >> /etc/apache2/ports.conf",
+        "sudo cp /workspaces/$RepositoryName/config/apache.conf /etc/apache2/sites-available/000-default.conf"
+	],
 
-	// Use 'portsAttributes' to set default properties for specific forwarded ports. More info: https://code.visualstudio.com/docs/remote/devcontainerjson-reference.
-	"portsAttributes": {
-		"8000": {
-			"label": "Apache Remote",
-			"onAutoForward": "notify"
-		}
-		// "3306": {
-		// 	"label": "MySQL Remote",
-		// 	"onAutoForward": "notify"
-		// }
+	"postAttachCommand": {
+		"server": "sudo service apache2 restart"
 	},
 
-	// start the apache webserver
-	"postStartCommand": "sudo apachectl start"
+	"portsAttributes": {
+		"80": {
+			"label": "Website",
+			"onAutoForward": "openPreview"
+		}
+	},
 
+	"remoteUser": "root"
 }
