@@ -7,7 +7,7 @@ services:
         env_file: ./.env
 
         volumes:
-            - ../www:/var/www/html
+            - ./www:/var/www/html
 
         command: sleep infinity
         restart: unless-stopped
