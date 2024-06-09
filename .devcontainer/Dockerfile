@@ -1,5 +1,5 @@
-FROM webdevops/php-apache
-COPY ../www /app
+FROM webdevops/php-apache:8.2-alpine
+# COPY ../www /app
 
 # FROM mcr.microsoft.com/devcontainers/base:noble
 

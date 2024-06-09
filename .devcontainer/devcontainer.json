@@ -1,8 +1,13 @@
 {
 	"name": "Linux, Apache, MySQL & PHP (LAMP)", 
 
-    "dockerComposeFile": "docker-compose.yml",
-	"service": "app"
+    "build": {
+		"dockerfile": "Dockerfile"
+    }
+
+    // "dockerComposeFile": "docker-compose.yml",
+	// "service": "app",
+    // "workspaceFolder": ""
 
     // "settings": { 
     //     "php.executablePath": "/usr/local/bin/php",

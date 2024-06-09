@@ -1,7 +1,7 @@
 services:
     app:
-        image: webdevops/php-apache
-        
+        image: webdevops/php-apache:8.2-alpine
+
         # build:
         #     context: .
         #     dockerfile: Dockerfile
