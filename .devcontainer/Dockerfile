@@ -1,6 +1,12 @@
 FROM webdevops/php-apache:8.2-alpine
 # COPY ../www /app
 
+ENV PHP_DISPLAY_ERRORS=1
+ENV WEB_DOCUMENT_ROOT=$DOCUMENT_ROOT
+
+
+
+
 # FROM mcr.microsoft.com/devcontainers/base:noble
 
 # RUN sudo apt-get update
