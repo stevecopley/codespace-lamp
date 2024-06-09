@@ -3,12 +3,12 @@ FROM php:apache
 RUN docker-php-ext-install pdo
 RUN docker-php-ext-install pdo_mysql
 
-RUN sudo apt-get update
-RUN sudo apt-get -y install git vim
+RUN apt update
+RUN apt -y install git vim
 
-RUN sudo a2enmod rewrite
+RUN a2enmod rewrite
 # RUN sudo echo 'Listen 8080' >> /etc/apache2/ports.conf
-RUN sudo service apache2 restart
+RUN service apache2 restart
 
 EXPOSE 8080
 
