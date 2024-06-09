@@ -13,17 +13,26 @@
 
 <?php
 
-    $serverName   = "lamp-db";
-    $databaseName = "test";
-    $username     = "root";
-    $password     = "root";
+    $serverName   = 'lamp-db';
+    $databaseName = 'test';
+    $username     = 'root';
+    $password     = 'root';
 
     try {
         $conn = new PDO("mysql:host=$serverName;dbname=$databaseName", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo "Connected successfully";
     } 
     catch(PDOException $e) {
-        echo "Connection failed: " . $e->getMessage();
+        die('Connection failed: ' . $e->getMessage());
     }
+
+    echo '<p>Connected successfully';
+
+    $stmt = $pdo->query('SELECT * FROM messages LIMIT 1');
+
+    if (!$stmt) die ()
+
+    $message = $stmt->fetch();
+
+    echo '<p>' . $message['content'];
 ?>
