@@ -11,22 +11,21 @@ services:
 
     restart: unless-stopped
 
-    network_mode: host
-
     ports:
       - 8080:80
 
-    # db:
-    #     image: mysql
+  db:
+    image: mysql
 
-    #     restart: unless-stopped
+    restart: unless-stopped
 
-    #     env_file: ./.env
+    env_file: ./.env
 
-    #     environment:
-    #         MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-    #         MYSQL_DATABASE:      ${MYSQL_DATABASE}
-    #         MYSQL_USER:          ${MYSQL_USER}
-    #         MYSQL_PASSWORD:      ${MYSQL_PASSWORD}
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE:      ${MYSQL_DATABASE}
+      MYSQL_USER:          ${MYSQL_USER}
+      MYSQL_PASSWORD:      ${MYSQL_PASSWORD}
 
-
+    ports:
+      - 3306:3306
