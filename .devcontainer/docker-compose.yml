@@ -1,8 +1,10 @@
 services:
     app:
-        build:
-            context: .
-            dockerfile: Dockerfile
+        image: webdevops/php-apache
+        
+        # build:
+        #     context: .
+        #     dockerfile: Dockerfile
 
         # volumes:
             # - ../..:/workspaces:cached
