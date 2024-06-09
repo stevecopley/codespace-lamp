@@ -14,7 +14,7 @@
 <?php
 
     $serverName   = 'lamp-db';
-    $databaseName = 'test';
+    $databaseName = 'helloworld';
     $username     = 'root';
     $password     = 'root';
 
