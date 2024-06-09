@@ -5,7 +5,7 @@ RUN docker-php-ext-install pdo_mysql
 
 RUN apt update
 RUN apt -y install git vim
-RUN apt -y install mysql-server
+RUN apt -y install mysql
 
 RUN a2enmod rewrite
 # RUN sudo echo 'Listen 8080' >> /etc/apache2/ports.conf
