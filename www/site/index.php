@@ -13,7 +13,7 @@
 
 <?php
 
-    $serverName   = "localhost";
+    $serverName   = "127.0.0.1";
     $databaseName = "test";
     $username     = "root";
     $password     = "root";
