@@ -30,8 +30,6 @@
 
     $stmt = $pdo->query('SELECT * FROM messages LIMIT 1');
 
-    if (!$stmt) die ()
-
     $message = $stmt->fetch();
 
     echo '<p>' . $message['content'];
