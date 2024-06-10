@@ -27,12 +27,13 @@ services:
     # Running on standard MySQL port 3306
     ports:
       - 3306:3306
-    # Required to set root password
+    # Set root password, and create a test DB
     environment:
       MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "helloWorld"
     # Data stores
     volumes:
-      # Map test DB SQL into container
+      # Contents for test DB mapped into container
       - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
       # Provide a persistent DB store
       - mysql-data:/var/lib/mysql

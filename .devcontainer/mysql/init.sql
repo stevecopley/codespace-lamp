@@ -1,7 +1,3 @@
--- Setup a test DB
-CREATE DATABASE IF NOT EXISTS helloWorld;
-USE helloWorld;
-
 -- Add in a table
 CREATE TABLE messages (
     id INT NOT NULL auto_increment,
