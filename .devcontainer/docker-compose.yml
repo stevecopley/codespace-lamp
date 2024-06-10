@@ -24,9 +24,6 @@ services:
     restart: unless-stopped
     # Official MySQL image
     image: mysql:latest
-    # Running on standard MySQL port 3306
-    ports:
-      - 3306:3306
     # Set root password, and create a test DB
     environment:
       MYSQL_ROOT_PASSWORD: "root"

@@ -1,36 +1,49 @@
-<h1>Hello World!</h1>
+<!DOCTYPE html>
 
-<h2>PHP</h2>
+<html lang="en">
 
-<?php
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World!</title>
+</head>
 
-    echo 'Hello from PHP!!!';
+<body>
 
-?>
+    <h1>Hello World!</h1>
+
+    <h2>PHP</h2>
+
+    <?php
+
+        echo '<p>Hello World from PHP!';
+
+    ?>
 
 
-<h2>MySQL</h2>
+    <h2>MySQL</h2>
 
-<?php
+    <?php
 
-    $serverName   = 'lamp-db';
-    $databaseName = 'helloworld';
-    $username     = 'root';
-    $password     = 'root';
+        $serverName   = 'lamp-db';
+        $databaseName = 'helloWorld';
+        $username     = 'root';
+        $password     = 'root';
 
-    try {
-        $conn = new PDO("mysql:host=$serverName;dbname=$databaseName", $username, $password);
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } 
-    catch(PDOException $e) {
-        die('Connection failed: ' . $e->getMessage());
-    }
+        try {
+            $conn = new PDO("mysql:host=$serverName;dbname=$databaseName", $username, $password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } 
+        catch(PDOException $e) {
+            die('Connection failed: ' . $e->getMessage());
+        }
 
-    echo '<p>Connected successfully';
+        $stmt = $conn->query('SELECT * FROM messages LIMIT 1');
+        $message = $stmt->fetch();
 
-    $stmt = $conn->query('SELECT * FROM messages LIMIT 1');
+        echo '<p>' . $message['content'];
+    ?>
 
-    $message = $stmt->fetch();
+</body>
+</html>
 
-    echo '<p>' . $message['content'];
-?>
