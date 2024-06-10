@@ -668,6 +668,7 @@ form > p {
 #menu {
     position: fixed;
 	top: 0;
+    bottom: 0;
 	width: 100%;
 	max-width: 20em;
 	z-index: 1;
@@ -695,6 +696,10 @@ form > p {
 	padding: 0.2em 0.4em;
 }
 
+#menu > form {
+    overflow-y: auto;
+}
+
 #menu form p {
     display: flex;
     gap: 0.4rem;
@@ -709,13 +714,13 @@ form > p {
     border-spacing: 0;
     padding-left: 0.5rem;
     position: relative;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 #dbs::before {
 	content: "";
     position: absolute;
-    top: 0.5rem;
+    top: 0.25rem;
     left: 0;
 	height: 1.3em;
 	width: 1.3em;
@@ -755,7 +760,7 @@ form > p {
 
 #logins,
 #tables {
-	margin: 2em -20px -20px;
+	margin: 1.5rem -16px -20px;
 	padding: 0 20px	20px;
 	overflow: hidden !important;
     font-size: 1rem;
