@@ -1,28 +1,43 @@
 services:
+
+  # Apache and PHP setup
   lamp-www:
+    container_name: lamp-www
+    restart: unless-stopped
+    # via Dockerfile
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: lamp-www
+    # Running on port 8080
+    ports:
+      - 8080:8080
+    # Need MySQL up too
     depends_on:
       - lamp-db
+    # Data stores
     volumes:
+      # Map WWW host folder into container
       - "../www:/var/www/html"
-    restart: unless-stopped
-    ports:
-      - 8080:80
 
   lamp-db:
-    image: mysql:latest
     container_name: lamp-db
     restart: unless-stopped
-    environment:
-      MYSQL_ROOT_PASSWORD: "root"
-    volumes:
-      - mysql-data:/var/lib/mysql
+    # Official MySQL image
+    image: mysql:latest
+    # Running on standard MySQL port 3306
     ports:
       - 3306:3306
+    # Required to set root password
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+    # Data stores
+    volumes:
+      # Map test DB SQL into container
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      # Provide a persistent DB store
+      - mysql-data:/var/lib/mysql
 
 volumes:
+  # Persist MySQL databases through rebuilds
   mysql-data:
 
