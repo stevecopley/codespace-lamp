@@ -83,6 +83,11 @@ By Lucas Sandery https://github.com/lucas-sandery/adminer
 
 html {
 	height: 100%;
+    box-sizing: border-box;
+}
+
+*, *::after, *::before {
+    box-sizing: inherit;
 }
 
 body {
@@ -90,7 +95,6 @@ body {
 	min-height: 100%;
 	display: flex;
 	background: var(--back-sidebar);
-	box-sizing: border-box;
     font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
 }
 
@@ -617,7 +621,6 @@ h2 + .hidden + * > :first-child {
 	max-width: calc(100% - 20em);
     background: var(--back-main);
 	padding: 0 20px 1.5em;
-	box-sizing: border-box;
 }
 
 #content {
@@ -678,7 +681,6 @@ form > p {
 .rtl #menu {
 	margin: 0;
 	padding: 0 20px 1.5em;
-	box-sizing: border-box;
 }
 
 #menu p {
@@ -762,12 +764,12 @@ form > p {
 #tables {
 	margin: 1.5rem -16px -20px;
 	padding: 0 20px	20px;
-	overflow: hidden !important;
+	/* overflow: hidden !important; */
     font-size: 1rem;
 }
 #logins:hover,
 #tables:hover {
-	overflow: visible !important;
+	/* overflow: visible !important; */
 }
 #logins li,
 #tables li {
